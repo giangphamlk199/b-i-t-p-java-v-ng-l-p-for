@@ -1,3 +1,9 @@
+
+//pham truong giang
+// cntt_6
+
+
+
 // bài 1: tính tổng số nguyên từ 1 đến n bằng vòng lặp for
 import java.util.Scanner;
 
@@ -77,40 +83,81 @@ public class Main {
     }
 }
 
-
-
-//bài 6: viết chương trình liệt kê từ 1 đến n
-
+//bài 6: mảng
+//truong giang
 import java.util.Scanner;
+import java.util.Arrays;
 
-public class LietKe {
+public class BaiTapMang1Chieu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Nhap n: ");
+        // a. Nhập mảng một chiều các số nguyên
+        System.out.print("Nhập số phần tử n: ");
         int n = sc.nextInt();
 
-        System.out.print("So cot moi hang: ");
-        int cols = sc.nextInt();
+        int[] a = new int[n];
 
-        
-        if (n < 1 || cols < 1) {
-            System.out.println("n va so cot phai >= 1");
-            return;
+        System.out.println("Nhập các phần tử của mảng:");
+        for (int i = 0; i < n; i++) {
+            System.out.print("a[" + i + "] = ");
+            a[i] = sc.nextInt();
         }
 
-        int count = 1;
+        // b. Xuất mảng
+        System.out.print("\nMảng vừa nhập: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(a[i] + " ");
+        }
 
-      
-        for (int i = 0; count <= n; i++) {
-            for (int j = 0; j < cols && count <= n; j++) {
-                System.out.printf("%3d", count);
-                count++;
+        // c. Tìm vị trí của số nguyên x
+        System.out.print("\n\nNhập số x cần tìm: ");
+        int x = sc.nextInt();
+        boolean found = false;
+
+        for (int i = 0; i < n; i++) {
+            if (a[i] == x) {
+                System.out.println("Số " + x + " xuất hiện tại vị trí: " + i);
+                found = true;
             }
-            System.out.println(); 
         }
 
-        sc.close();
+        if (!found) {
+            System.out.println("Không tìm thấy số " + x + " trong mảng.");
+        }
+
+        // d. Tìm giá trị lớn nhất
+        int max = a[0];
+        for (int i = 1; i < n; i++) {
+            if (a[i] > max) {
+                max = a[i];
+            }
+        }
+        System.out.println("\nGiá trị lớn nhất trong mảng: " + max);
+
+        // e. Tìm giá trị nhỏ nhất
+        int min = a[0];
+        for (int i = 1; i < n; i++) {
+            if (a[i] < min) {
+                min = a[i];
+            }
+        }
+        System.out.println("Giá trị nhỏ nhất trong mảng: " + min);
+
+        // f. Tìm vị trí phần tử có giá trị lớn nhất
+        int viTriMax = 0;
+        for (int i = 1; i < n; i++) {
+            if (a[i] > a[viTriMax]) {
+                viTriMax = i;
+            }
+        }
+        System.out.println("Vị trí của phần tử lớn nhất: " + viTriMax);
+
+        // g. Sắp xếp mảng tăng dần
+        Arrays.sort(a);
+        System.out.print("\nMảng sau khi sắp xếp tăng dần: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(a[i] + " ");
+        }
     }
 }
-
